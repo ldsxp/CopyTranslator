@@ -1,0 +1,110 @@
+######################################################################################
+# 以斜杠“/”开头表示目录；
+# 以星号“*”通配多个字符；
+# 以问号“?”通配单个字符
+# 以方括号“[]”包含单个字符的匹配列表；
+# 以叹号“!”表示不忽略(跟踪)匹配到的文件或目录；
+# git 对于 .ignore 配置文件是按行从上到下进行规则匹配的，如果前面的规则匹配的范围更大，则后面的规则将不会生效；
+# fd1/* 说明：忽略目录 fd1 下的全部内容；注意，不管是根目录下的 /fd1/ 目录，还是某个子目录 /child/fd1/ 目录，都会被忽略；
+# /TODO # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO
+# 规则：
+# /*
+# !.gitignore
+# !/fw/bin/
+# !/fw/sf/
+# 说明：忽略全部内容，但是不忽略 .gitignore 文件、根目录下的 /fw/bin/ 和 /fw/sf/ 目录；
+
+# .gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。要先把本地缓存删除（改变成未track状态），然后再提交：
+# git rm -r --cached .
+# git add .
+# git commit -m 'update .gitignore'
+
+# 注意：
+# 不要误解了 .gitignore 文件的用途，该文件只能作用于 Untracked Files，也就是那些从来没有被 Git 记录过的文件（自添加以后，从未 add 及 commit 过的文件）。
+# 如果文件曾经被 Git 记录过，那么.gitignore 就对它们完全无效。
+
+######################################################################################
+
+# 下载文件
+-/
+
+# sphinx build directories
+_build/
+
+# dotfiles
+.*
+!.gitignore
+
+# emacs backup files
+*~
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+*.egg
+
+# PyInstaller
+#  通常这些文件是在PyInstaller构建exe之前由模板中的python脚本编写的，以便向其中注入日期/其他信息。
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+# local_settings.py
+
+# Flask stuff:
+instance/
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# virtualenv
+venv/
+ENV/
+
+# mkdocs documentation
+/site
+
+# my

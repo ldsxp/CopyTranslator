@@ -1,0 +1,9 @@
+pyperclip
+pynput
+wxPython
+regex
+requests
+beautifulsoup4
+pywin32
+googletrans
+pyinstaller
