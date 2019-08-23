@@ -85,8 +85,6 @@ class Controller():
         self.patterns = [re.compile(r'([?!.])[ ]?\n'), re.compile(r'([？！。])[ \n]')]  # 前面一个处理英语语系的，后面一个可以处理汉语系。
         self.pattern2 = re.compile(r'\$([?？！!.。])\$')
 
-        UpdateThread(self).start()
-
     def SeeSource(self, event):
         if self.src == self.subFrame.destText.GetValue():
             self.subFrame.destText.SetValue(self.src)
@@ -254,7 +252,6 @@ class Controller():
         self.setSrc('')
         self.setResult('')
 
-
     def SwitchMode(self, event):
         self.config.frame_mode = self.config.Mode1
 
@@ -406,4 +403,3 @@ class Controller():
 
     def switch_show(self, event):
         self.config.autoshow = not self.config.autoshow
-
